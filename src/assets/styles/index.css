@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-black/80 text-white;
+}
+
+/* @layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+} */
