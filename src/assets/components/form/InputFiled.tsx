@@ -12,7 +12,7 @@ interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   extraClass?: string;
   type?: string;
-  error?: boolean;
+  error?: string;
   labelClass?: string;
   icon?: React.FunctionComponent<SVGProps<SVGAElement>>;
   options?: { label: string; value: string }[];
@@ -93,6 +93,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
             )}
           </div>
         )}
+        {error && <p className="text-red-700 text-sm">{error}</p>}
       </div>
     );
   }
