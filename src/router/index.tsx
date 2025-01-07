@@ -5,18 +5,22 @@ import * as path from "./path";
 import PrivateRoute from "./routes/PrivateRoute";
 //public pages
 import Login from "views/authentication/Login/Login";
-import Register from "views/authentication/Register/Register";
+//private pages
 import Dashboard from "views/dashboard";
+import PrivateLayout from "assets/components/layout";
+import RankSetupForm from "views/RankSetup/RankSetupForm";
 
 const Router = () => {
   return (
     <Routes>
-      <Route path={path.PARENT_ROUTE} element={<Login />} />
+      <Route path={path.LOGIN} element={<Login />} />
 
       <Route element={<PrivateRoute />}>
-        {/* <Route path={path.USER_DETAILS} element={<UserDetails />} />
-        <Route path={path.CHECKOUT} element={<Payment />} /> */}
-        <Route path={path.DASHBOARD} element={<Dashboard />} />
+        <Route path={path.PARENT_ROUTE} element={<PrivateLayout />}>
+          <Route path={path.PARENT_ROUTE} element={<Dashboard />} />
+          <Route path={path.RANK_SETUP} element={<RankSetupForm />} />
+          <Route path={path.SETTINGS} element={<RankSetupForm />} />
+        </Route>
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>

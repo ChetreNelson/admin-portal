@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,7 +5,6 @@ import LoginSchema, { LoginSchemaType } from "./LoginValidation";
 import InputField from "assets/components/form/InputFiled";
 const Login = () => {
   const navigate = useNavigate();
-
   const loginSubmit = (values: LoginSchemaType) => {
     console.log(values);
     navigate("/admin/dashboard");
