@@ -2,6 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { sidebaritems } from "../constants/SidebarItems";
 import { cn } from "assets/lib/utils";
 import AppLogo from "assets/components/icons/AppLogo";
+import Logout from "views/authentication/Logout/Logout";
 
 const Sidebar = () => {
   const path = useLocation().pathname;
@@ -35,7 +36,7 @@ const Sidebar = () => {
             </ul>
           ))}
         </div>
-        <div>Logout</div>
+        <Logout />
       </div>
     </div>
   );
