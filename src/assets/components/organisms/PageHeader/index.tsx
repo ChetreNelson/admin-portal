@@ -19,9 +19,9 @@ const Pageheder = ({ extraClass }: PageHeaderProps) => {
           extraClass
         )}
       >
-        <h1 className="text-2xl font-bold  py-3 px-2">{title}</h1>
+        <h1 className="text-2xl font-bold  py-3 px-4 text-slate-500">{title}</h1>
       </div>
-      <div className="bg-white rounded-lg px-2 py-2 h-full">
+      <div className="bg-white overflow-auto rounded-lg px-4 py-2 h-full">
         <Outlet />
       </div>
     </div>

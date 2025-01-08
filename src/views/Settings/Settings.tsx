@@ -27,7 +27,7 @@ const Settings = () => {
   };
 
   return (
-    <div className="bg-slate-200 w-96  rounded-lg px-4 py-4">
+    <div className="bg-slate-200 w-96  rounded-lg px-4 mt-2 py-4">
       <h1 className="text-2xl text-center text-gray-500 font-bold  py-3 px-2">
         Email:<span>{userEmail}</span>
       </h1>
