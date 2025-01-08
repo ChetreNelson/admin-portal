@@ -23,7 +23,7 @@ const Logout = () => {
       <Button
         variant="ghost"
         onClick={() => setShowModal(true)}
-        className="text-lg flex gap-2 justify-start mx-2"
+        className="text-lg flex gap-2 justify-start mx-2 mb-2"
       >
         <HiOutlineLogout />
         Logout
