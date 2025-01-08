@@ -3,7 +3,11 @@ import React from "react";
 
 const RankCards = () => {
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-y-4">
+      <RankSetupCard />
+      <RankSetupCard />
+      <RankSetupCard />
+      <RankSetupCard />
       <RankSetupCard />
     </div>
   );
