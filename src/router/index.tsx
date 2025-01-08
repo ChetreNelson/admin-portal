@@ -5,8 +5,9 @@ import * as path from "./path";
 import PrivateRoute from "./routes/PrivateRoute";
 import PrivateLayout from "assets/components/layout";
 import Login from "views/authentication/Login/Login";
+
 const Dashboard = lazy(() => import("views/dashboard"));
-const RankSetupForm = lazy(() => import("views/RankSetup/RankSetupForm"));
+const Ranks = lazy(() => import("views/RankSetup"));
 const Settings = lazy(() => import("views/Settings/Settings"));
 
 const Router = () => {
@@ -16,7 +17,7 @@ const Router = () => {
       <Route element={<PrivateRoute />}>
         <Route path={path.PARENT_ROUTE} element={<PrivateLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path={path.RANK_SETUP} element={<RankSetupForm />} />
+          <Route path={path.RANK_SETUP} element={<Ranks />} />
           <Route path={path.SETTINGS} element={<Settings />} />
         </Route>
       </Route>

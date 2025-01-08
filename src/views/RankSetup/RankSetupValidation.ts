@@ -10,7 +10,7 @@ const RankSetupSchema = z.object({
   stars: z
     .string()
     .min(3, { message: "Stars must contain atleast 3 character" }),
-  rankDescriptions: z.string().optional(),
+  rankDescriptions: z.string().optional(),  
 });
 
 export default RankSetupSchema;

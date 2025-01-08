@@ -3,8 +3,14 @@ import { useForm } from "react-hook-form";
 
 import InputField from "assets/components/form/InputFiled";
 import RankSetupSchema, { RankSetupSchemaType } from "./RankSetupValidation";
+import { Dispatch, SetStateAction } from "react";
+import { Button } from "assets/components/ui/button";
 
-const RankSetupForm = () => {
+type RankSetupFormProps = {
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const RankSetupForm = ({ setShowModal }: RankSetupFormProps) => {
   // const defaultValues: SetingsSchemaType = {
   //   currentPassword: "",
   //   newPassword: "",
@@ -23,6 +29,7 @@ const RankSetupForm = () => {
   const handleNewRank = (values: RankSetupSchemaType) => {
     console.log("🚀 ~ hanldePasswordChange ~ values:", values);
     reset();
+    setShowModal(false);
   };
 
   return (
@@ -62,12 +69,22 @@ const RankSetupForm = () => {
               {...register("rankDescriptions")}
             ></textarea>
           </div>
-          <button
-            type="submit"
-            className="bg-blue-500 mt-4 text-white p-2 rounded"
-          >
-            Submit
-          </button>
+          <div className="flex gap-4">
+            <Button
+              variant="outline"
+              onClick={() => setShowModal(false)}
+              className=" mt-4 w-full  p-2 rounded"
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="ghost"
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-500 mt-4 w-full text-white p-2 rounded"
+            >
+              Submit
+            </Button>
+          </div>
         </div>
       </form>
     </div>
