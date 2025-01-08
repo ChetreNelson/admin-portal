@@ -53,7 +53,9 @@ const RankSetupForm = () => {
             error={errors.stars ? errors.stars.message : undefined}
           />
           <div className="w-full flex flex-col gap-1">
-            <label className="font-medium text-gray-600">Rank Descriptions</label>
+            <label className="font-medium text-gray-600">
+              Rank Descriptions
+            </label>
             <textarea
               className="w-full rounded-lg outline-none p-2"
               rows={4}
