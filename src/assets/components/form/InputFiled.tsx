@@ -40,7 +40,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
     return (
       <div className="mt-1">
         {label && (
-          <label className={twMerge("font-medium", labelClass)}>{label}</label>
+          <label className={twMerge("font-medium text-gray-600", labelClass)}>{label}</label>
         )}
         {type === "radio" && options ? (
           <div className="flex flex-col gap-4 mt-2">
@@ -67,7 +67,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
               ref={ref}
               {...props}
               className={cn(
-                "mt-1 text-gray-900 font-normal w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm",
+                " text-gray-900 font-normal w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm",
                 error && "border-red-700 focus:border-red-700",
                 containIcon && "pr-10",
                 extraClass

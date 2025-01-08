@@ -21,7 +21,7 @@ const Pageheder = ({ extraClass }: PageHeaderProps) => {
       >
         <h1 className="text-2xl font-bold  py-3 px-2">{title}</h1>
       </div>
-      <div className="bg-white rounded-lg px-2 h-full">
+      <div className="bg-white rounded-lg px-2 py-2 h-full">
         <Outlet />
       </div>
     </div>
