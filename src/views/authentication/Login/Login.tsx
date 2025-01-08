@@ -5,11 +5,6 @@ import LoginSchema, { LoginSchemaType } from "./LoginValidation";
 import InputField from "assets/components/form/InputFiled";
 const Login = () => {
   const navigate = useNavigate();
-  const loginSubmit = (values: LoginSchemaType) => {
-    console.log(values);
-    navigate("/admin/dashboard");
-  };
-
   const {
     handleSubmit,
     register,
@@ -17,6 +12,15 @@ const Login = () => {
   } = useForm<LoginSchemaType>({
     resolver: zodResolver(LoginSchema),
   });
+
+  const loginSubmit = (values: LoginSchemaType) => {
+    console.log(values);
+    navigate("/admin/dashboard");
+
+    if (values) {
+      localStorage.setItem("mythBoost", values.email);
+    }
+  };
   return (
     <div className=" flex flex-col items-center justify-center  w-full">
       <h1 className="text-2xl font-bold my-6">Admin Login</h1>

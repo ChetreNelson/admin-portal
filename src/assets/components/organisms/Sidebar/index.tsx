@@ -7,9 +7,12 @@ const Sidebar = () => {
   const path = useLocation().pathname;
   return (
     <div className="flex flex-col items-center w-60 rounded-lg">
-      <div className="rounded-lg flex bg-white  w-full items-center justify-center mb-4 *:w-44 *:h-14 ">
+      <NavLink
+        to="/"
+        className="w-full rounded-lg flex bg-white  items-center justify-center mb-4 *:w-44 *:h-14 "
+      >
         <AppLogo />
-      </div>
+      </NavLink>
 
       <div className="p-2  rounded-lg flex bg-white flex-col w-full h-full justify-between">
         <div className="w-full">
