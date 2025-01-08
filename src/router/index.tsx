@@ -17,7 +17,7 @@ const Router = () => {
 
       <Route element={<PrivateRoute />}>
         <Route path={path.PARENT_ROUTE} element={<PrivateLayout />}>
-          <Route path={path.PARENT_ROUTE} element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
           <Route path={path.RANK_SETUP} element={<RankSetupForm />} />
           <Route path={path.SETTINGS} element={<RankSetupForm />} />
         </Route>
