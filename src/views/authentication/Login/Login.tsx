@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import LoginSchema, { LoginSchemaType } from "./LoginValidation";
 import InputField from "assets/components/form/InputFiled";
+import AppLogo from "assets/components/icons/AppLogo";
 const Login = () => {
   const navigate = useNavigate();
   const {
@@ -23,7 +24,7 @@ const Login = () => {
   };
   return (
     <div className=" flex flex-col items-center justify-center  w-full">
-      <h1 className="text-2xl font-bold my-6">Admin Login</h1>
+      <div className=" my-6"><AppLogo/></div>
       <form onSubmit={handleSubmit(loginSubmit)}>
         <div className="flex flex-col w-96 gap-4 bg-slate-200 rounded-xl p-8">
           <InputField
