@@ -1,5 +1,10 @@
+import { RankFormProvider } from "./FieldControlContext";
 import { RankProvider } from "./RankSetupContexts";
 
 export const RootProvider = ({ children }: { children: React.ReactNode }) => {
-  return <RankProvider>{children}</RankProvider>;
+  return (
+    <RankProvider>
+      <RankFormProvider>{children}</RankFormProvider>
+    </RankProvider>
+  );
 };

@@ -12,7 +12,7 @@ interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   extraClass?: string;
   type?: string;
-  error?: string;
+  error?: string | undefined;  // Ensure TypeScript recognizes error as string or undefined
   labelClass?: string;
   icon?: React.FunctionComponent<SVGProps<SVGAElement>>;
   options?: { label: string; value: string }[];
@@ -37,10 +37,13 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
     };
     const inputType = type === "password" && !hidePassword ? "text" : type;
     const containIcon = type === "password" || type === "email" || Icon;
+
     return (
       <div className="mt-1">
         {label && (
-          <label className={twMerge("font-medium text-gray-600", labelClass)}>{label}</label>
+          <label className={twMerge("font-medium text-gray-600", labelClass)}>
+            {label}
+          </label>
         )}
         {type === "radio" && options ? (
           <div className="flex flex-col gap-4 mt-2">
@@ -93,7 +96,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
             )}
           </div>
         )}
-        {error && <p className="text-red-700 text-sm">{error}</p>}
+        {error && <p className="text-red-700 text-sm">{error}</p>} {/* Ensures error is valid before rendering */}
       </div>
     );
   }

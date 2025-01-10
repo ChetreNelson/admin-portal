@@ -7,7 +7,7 @@ interface CardProps {
 
 const RankSetupCard = ({ imageUrl, rankName, divisions, stars }: CardProps) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden  w-72">
+    <div className="bg-white drop-shadow-xl rounded-lg overflow-hidden  ">
       <img
         src={
           imageUrl ??

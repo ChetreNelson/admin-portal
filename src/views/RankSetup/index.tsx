@@ -17,15 +17,13 @@ const Ranks = () => {
       <RankCards />
       {showModal && (
         <Dialog open={showModal} onOpenChange={setShowModal}>
-          <DialogContent className="w-fit flex flex-col items-center  ">
+          <DialogContent className="w-full flex flex-col items-center outline-none  max-h-[90vh] ">
             <DialogHeader>
-              <DialogTitle className="text-3xl ">Rank Setup</DialogTitle>
+              <DialogTitle className="text-3xl text-gray-400">
+                Rank Setup
+              </DialogTitle>
             </DialogHeader>
-            <DialogDescription>
-              <p>Setup your Rank</p>
-            </DialogDescription>
-
-            <RankSetupForm setShowModal ={setShowModal}/>
+            <RankSetupForm setShowModal={setShowModal} />
           </DialogContent>
         </Dialog>
       )}
