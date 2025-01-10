@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "assets/components/ui/dialog";
-import RankSetupForm from "./RankSetupForm";
+import RankSetupForm from "./RankSetupForm/RankSetupForm";
 
 const Ranks = () => {
   const { showModal, setShowModal } = useRankContext();

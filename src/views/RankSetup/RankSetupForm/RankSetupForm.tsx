@@ -2,13 +2,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 import InputField from "assets/components/form/InputFiled";
-import RankSetupSchema, { RankSetupSchemaType } from "./RankSetupValidation";
+import RankSetupSchema, { RankSetupSchemaType } from "../RankSetupValidation";
 
 import { Button } from "assets/components/ui/button";
 import { useRankFormContext } from "assets/contexts/FieldControlContext";
 import { useSearchParams } from "react-router-dom";
-import { useEffect } from "react";
-import { RankContext, useRankContext } from "assets/contexts/RankSetupContexts";
+import { useEffect, useState } from "react";
+import { useRankContext } from "assets/contexts/RankSetupContexts";
+import RankLogoUpload from "./RankLogoUpload";
 
 type RankSetupFormProps = {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,6 +18,7 @@ type RankSetupFormProps = {
 const RankSetupForm = ({ setShowModal }: RankSetupFormProps) => {
   // const [fields, setFields] = useState([{ division: "", amount: "" }]);
   const [params] = useSearchParams();
+  const [rankIconFile, setRankIconFile] = useState<File | null>(null);
   const {
     fields,
     stars,
@@ -35,23 +37,27 @@ const RankSetupForm = ({ setShowModal }: RankSetupFormProps) => {
   } = useForm<RankSetupSchemaType>({
     resolver: zodResolver(RankSetupSchema),
   });
-
-  useEffect(() => {
-    if (!params.get("rankId")) {
-      resetForm();
-    }
-  }, [showModal]);
+  const handleLogoFile = (files: FileList) => {
+    setRankIconFile(files[0]);
+  };
 
   const handleNewRank = (values: RankSetupSchemaType) => {
     const newValues = {
       ...values,
       ...(fields[0].division && { divisonAndAmount: fields }),
       ...(stars[0].star && { starAndAmount: stars }),
+      ...(rankIconFile && { rankIcon: rankIconFile }),
     };
-    console.log("🚀 ~ hanldePasswordChange ~ values:", newValues);
+    console.log("🚀 ~ handleNewRank ~ newValues:", newValues)
+ 
     reset();
     setShowModal(false);
   };
+  useEffect(() => {
+    if (!params.get("rankId")) {
+      resetForm();
+    }
+  }, [showModal]);
 
   return (
     <div className="bg-slate-200   rounded-lg px-4 mt-2 py-4 overflow-auto ">
@@ -138,12 +144,15 @@ const RankSetupForm = ({ setShowModal }: RankSetupFormProps) => {
               +
             </Button>
           </div>
+          <div>
+            <RankLogoUpload handleLogoFile={handleLogoFile} />
+          </div>
           <div className="w-full flex flex-col gap-1">
             <label className="font-medium text-gray-600">
               Rank Descriptions
             </label>
             <textarea
-              className="w-full rounded-lg outline-none p-2"
+              className="w-full rounded-lg  focus:outline-none border  focus:border-primary sm:text-sm p-2"
               rows={4}
               {...register("rankDescriptions")}
             ></textarea>

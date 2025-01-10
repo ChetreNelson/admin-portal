@@ -17,6 +17,8 @@ type Star = {
 type RankFormContextType = {
   fields: Field[];
   stars: Star[];
+  rankLogo: string;
+  setRankLogo: React.Dispatch<React.SetStateAction<string>>;
   addNewField: () => void;
   addNewStar: () => void;
   handleFieldChange: (index: number, key: keyof Field, value: string) => void;
@@ -32,6 +34,7 @@ export const RankFormContext = createContext<RankFormContextType | undefined>(
 export const RankFormProvider = ({ children }: RankFormProviderProps) => {
   const [fields, setFields] = useState<Field[]>([{ division: "", amount: "" }]);
   const [stars, setStars] = useState<Star[]>([{ star: "", amount: "" }]);
+  const [rankLogo, setRankLogo] = useState<string>("");
 
   const addNewField = () =>
     setFields((prev) => [...prev, { division: "", amount: "" }]);
@@ -57,6 +60,7 @@ export const RankFormProvider = ({ children }: RankFormProviderProps) => {
   const resetForm = () => {
     setFields([{ division: "", amount: "" }]);
     setStars([{ star: "", amount: "" }]);
+    setRankLogo("");
   };
 
   return (
@@ -64,11 +68,13 @@ export const RankFormProvider = ({ children }: RankFormProviderProps) => {
       value={{
         fields,
         stars,
+        rankLogo,
+        setRankLogo,
         addNewField,
         addNewStar,
         handleFieldChange,
         handleStarChange,
-        resetForm
+        resetForm,
       }}
     >
       {children}
